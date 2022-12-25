@@ -25,8 +25,8 @@ document.querySelector('.form').addEventListener('submit',e=>{
     e.preventDefault();
     const name = document.getElementById('name').value;
     const title = document.getElementById('title').value;
-    // const content = document.getElementById('textarea').value;
-    // var content = content1.getContent({ format: "text" });
-    const content = tinymce.get("myTextarea").getContent({ format: "text" });
+    // const content = document.getElementById('myTextarea').value;
+    // var content = content.getContent({ format: "text" });
+    var content = tinymce.get("myTextarea").getContent({ format: "text" });
     createBlogg(name,title,content);
 })
