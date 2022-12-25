@@ -11,7 +11,7 @@ const updateBlogg = async(name,title,content,id)=>{
         }
     })
     if(res.data.status =="success"){
-        alert("Updated Successfully!");
+        window.alert("Updated Successfully!");
         window.setTimeout(()=>{
             location.assign(`/blog/${id}`)
         })
