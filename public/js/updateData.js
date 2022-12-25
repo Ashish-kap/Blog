@@ -1,5 +1,6 @@
-
-const updateBlogg = async(name,title,content,id)=>{
+import axios from 'axios';
+import { showAlert } from './alerts';
+export const updateBlogg = async(name,title,content,id)=>{
     try{
         const res = await axios({
         method:'PATCH',
@@ -11,23 +12,23 @@ const updateBlogg = async(name,title,content,id)=>{
         }
     })
     if(res.data.status =="success"){
-        window.alert("Updated Successfully!");
+        showAlert("Updated Successfully!");
         window.setTimeout(()=>{
             location.assign(`/blog/${id}`)
         })
     }
     }catch(err){
-        console.log(err.response.data.message)
+        showAlert(err.response.data.message)
     }
 }
 
 
-document.querySelector('.form-update').addEventListener('submit',e=>{
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const title = document.getElementById('title').value;
-    // const content = document.getElementById('myTextarea').value;
-    const content = tinymce.get("myTextarea").getContent({ format: "text" });
-    const id = document.getElementById('idf').value
-    updateBlogg(name,title,content,id);
-})
+// document.querySelector('.form-update').addEventListener('submit',e=>{
+//     e.preventDefault();
+//     const name = document.getElementById('name').value;
+//     const title = document.getElementById('title').value;
+//     // const content = document.getElementById('myTextarea').value;
+//     const content = tinymce.get("myTextarea").getContent({ format: "text" });
+//     const id = document.getElementById('idf').value
+//     updateBlogg(name,title,content,id);
+// })
