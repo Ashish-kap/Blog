@@ -10,7 +10,7 @@ const createBlogg = async(name,title,content)=>{
         },
     })
     if(res.data.status =="success"){
-        alert("created Successfully!");
+        window.alert("created Successfully!");
         window.setTimeout(()=>{
             location.assign('/')
         })
