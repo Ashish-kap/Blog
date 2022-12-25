@@ -1,4 +1,3 @@
-import alert from 'alert';
 const createBlogg = async(name,title,content)=>{
     try{
         const res = await axios({
@@ -17,8 +16,8 @@ const createBlogg = async(name,title,content)=>{
         })
     }
     }catch(err){
-        alert("please fill all the fields🙏");
-        console.log(err.response.data.message)
+        alert("please fill all the fields🙏",err.response.data.message);
+
     }
 }
 
