@@ -1,5 +1,4 @@
-import swal from 'sweetalert';
-
+import alert from 'alert';
 const createBlogg = async(name,title,content)=>{
     try{
         const res = await axios({
@@ -12,13 +11,13 @@ const createBlogg = async(name,title,content)=>{
         },
     })
     if(res.data.status =="success"){
-        swal("created Successfully!","success");
+        alert("created Successfully!");
         window.setTimeout(()=>{
             location.assign('/')
         })
     }
     }catch(err){
-        swal("please fill all the fields...🙏🙏","error",err.response.data.message)
+        alert("please fill all the fields🙏");
         console.log(err.response.data.message)
     }
 }
