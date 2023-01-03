@@ -59,7 +59,7 @@ exports.updtBlog = catchAsync(async(req,res,next)=>{
       content:req.body.content
     },{new:true,runValidators:true});
 
-   res.status(200).json({
+   res.status(200).send({
     status:"success",
     data:updtedBlog,
     })

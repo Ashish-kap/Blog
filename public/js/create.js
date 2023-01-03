@@ -1,5 +1,6 @@
-import axios from 'axios';
-export const createBlogg = async(name,title,content)=>{
+// import axios from 'axios';
+// export
+ const createBlogg = async(name,title,content)=>{
     try{
         const res = await axios({
         method:'POST',
@@ -10,24 +11,29 @@ export const createBlogg = async(name,title,content)=>{
             content:content
         },
     })
-    if(res.data.status =="success"){
-        alert("created Successfully!");
-        window.setTimeout(()=>{
-            location.assign('/')
-        })
-    }
-    }catch(err){
-        alert("please fill all the fields",err.response.data.message);
 
+    alert('Created Successfully')
+    window.location.replace('/');
+    // if(res.data.status =="success"){
+        // res.render('createAlert')
+        // alert("created Successfully!");
+        // window.setTimeout(()=>{
+        //     location.assign('/')
+        // })
+    // } 
+    }catch(err){
+        // res.render("error");
+        alert("Please fill all the fields..😂")
+        console.log(err.response.data.message)
     }
 }
 
-// document.querySelector('.form').addEventListener('submit',e=>{
-//     e.preventDefault();
-//     const name = document.getElementById('name').value;
-//     const title = document.getElementById('title').value;
-//     // const content = document.getElementById('myTextarea').value;
-//     // var content = content.getContent({ format: "text" });
-//     var content = tinymce.get("myTextarea").getContent({ format: "text" });
-//     createBlogg(name,title,content);
-// })
+document.querySelector('.form').addEventListener('submit',e=>{
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const title = document.getElementById('title').value;
+    // const content = document.getElementById('myTextarea').value;
+    // var content = content.getContent({ format: "text" });
+    var content = tinymce.get("myTextarea").getContent({ format: "text" });
+    createBlogg(name,title,content);
+})
